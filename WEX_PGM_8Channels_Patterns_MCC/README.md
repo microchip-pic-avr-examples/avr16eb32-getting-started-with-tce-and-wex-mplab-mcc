@@ -121,7 +121,7 @@ void Stairs_Pattern_Set(void)
 <br>4. From the Device Resources, go to Drivers window, Timer and add TCE module, then do the following configuration:
 <br><img src="../images/Add_TCE.png">
     <br> - Module Enable - toggle the button (it turns blue if enabled)
-<br><img src="../Images/TCE_UI_usecase2.png">
+<br><img src="../images/TCE_UI_usecase2.png">
 
 <br>5. From the Device Resources, go to Drivers window, add the WEX module, then do the following configuration:
 <br><img src="../images/Add_WEX.png">
@@ -130,7 +130,7 @@ void Stairs_Pattern_Set(void)
     <br> - Override Settings: Check all the boxes from the Output Enable column for the Waveform Output[0-7]
     <br> - Pattern Generation Mode Enable: toggle the button (it turns blue if enabled)
     <br> - Pattern Generation Actions : check all the boxes from the Override Enable column and set for each output a desired state (LOW or HIGH), in order to set a pattern
-<br><img src="../Images/WEX_UI_usecase2.png">
+<br><img src="../images/WEX_UI_usecase2.png">
 
 <br>6. In the Pin Grid View window check if the WEX_WO[0-7] pins are locked as outputs on PORTA. When the boxes from Output Enable column from Override Settings are checked, the pins are
 also locked. To change the PORT simply click on a pin from another PORT in Pin Grid View.
@@ -146,7 +146,7 @@ also locked. To change the PORT simply click on a pin from another PORT in Pin G
  |            PA6           |   WEX WO6           |
  |            PA7           |   WEX WO7           |
 
-<br><img src="../Images/Pin_Grid_View_UseCase2.png">
+<br><img src="../images/Pin_Grid_View_UseCase2.png">
 
 <br>7. In the Project Resources window, click the Generate button so that MCC will generate all the specified drivers and configurations.
 <br>
