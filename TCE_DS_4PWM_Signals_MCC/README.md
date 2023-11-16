@@ -172,7 +172,7 @@ int main(void)
 
 <br><img src="../images/Set_as_main_project.png">
 
- 1.  Build the ```TCE_DS_4PWM_Signals_MCC.X``` project by clicking **Clean and Build Project**.
+ 4.  Build the ```TCE_DS_4PWM_Signals_MCC.X``` project by clicking **Clean and Build Project**.
 
 <br><img src="../images/Clean_and_build.png">
 

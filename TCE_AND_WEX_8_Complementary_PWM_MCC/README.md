@@ -236,7 +236,7 @@ int main(void)
 
 <br><img src="../images/Set_as_main_project3.png">
 
- 1. Build the ```TCE_AND_WEX_8_Complementary_PWM_MCC.X``` project by clicking on **Clean and Build Project**.
+ 4. Build the ```TCE_AND_WEX_8_Complementary_PWM_MCC.X``` project by clicking on **Clean and Build Project**.
 
 <br><img src="../images/Clean_and_build3.png">
 
