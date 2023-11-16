@@ -224,7 +224,7 @@ int main(void)
 }
 ```
 
-<br>9. Now the project can be built and run from MPLAB X IDE. At run time, the values for the compare registers modifiy at interrupts generated for each channel. A software fault is generated and cleared periodically, resuming normal operation.
+<br>12. Now the project can be built and run from MPLAB X IDE. At run time, the values for the compare registers modifiy at interrupts generated for each channel. A software fault is generated and cleared periodically, resuming normal operation.
 
 ## Operation
 
