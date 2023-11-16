@@ -25,7 +25,7 @@ More details and code examples on the AVR16EB32 can be found at the following li
 
 ## Setup
 
-The AVR16EB32 Curiosity Nano Development Board is used as a test platform.
+The AVR16EB32 Curiosity Nano Development board is used as a test platform.
 
 <br><img src="../images/AVR16EB32_Cnano_Board.png">
 

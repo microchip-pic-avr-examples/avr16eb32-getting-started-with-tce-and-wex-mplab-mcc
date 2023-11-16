@@ -23,7 +23,7 @@ A basic use case of the timer’s waveform extension is to set a pattern for the
 
 ## Setup
 
-The AVR16EB32 Curiosity Nano Development Board is used as a test platform.
+The AVR16EB32 Curiosity Nano Development board is used as a test platform.
 
 <br><img src="../images/AVR16EB32_Cnano_Board.png">
 
