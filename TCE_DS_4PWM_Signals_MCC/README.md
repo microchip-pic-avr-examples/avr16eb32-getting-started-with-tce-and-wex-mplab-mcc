@@ -61,7 +61,7 @@ void Amplitude_Value_Set(uint16_t value)
 
 <br>2. Open MCC from the toolbar (more information on how to install the MCC plug-in can be found [here](https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-D98198EA-93B9-45D2-9D96-C97DBCA55267)).
 
-<br>3. In **MCC Content Manager Wizard** select **MCC Melody** then select the **Finish**.<br><img src="../images/addMCC.png">
+<br>3. In **MCC Content Manager** tab click the **Select MCC Melody** button and then click **Finish**.<br><img src="../images/addMCC.png">
 <br><img src="../images/selectMCCMelody.png">
 <br><img src="../images/mccFinish.png">
 
@@ -78,7 +78,7 @@ void Amplitude_Value_Set(uint16_t value)
 <br><img src="../images/Add_TCE.png">
     <br>  - Module Enable: Must be enabled by default, if not just toggle the button (it turns blue if enabled)
     <br>  - Clock Selection: System clock (by default the divider must be 1 - System clock)
-    <br>  - Waveform Generation Mode: Dual-slope PWM mode with overflow on TOP and BOTTOM (DSBOTH)
+    <br>  - Waveform Generation Mode: Dual-Slope PWM mode with overflow on TOP and BOTTOM (DSBOTH)
     <br>  - Requested Period[s]: 0.0001
     <br>  - Duty Cycle 0 [%] : 20
     <br>  - Duty Cycle 1 [%] : 40
@@ -172,7 +172,7 @@ int main(void)
 
 <br><img src="../images/Set_as_main_project.png">
 
- 4.  Build the ```TCE_DS_4PWM_Signals_MCC.X``` project: click on **Clean and Build Project**.
+ 1.  Build the ```TCE_DS_4PWM_Signals_MCC.X``` project by clicking **Clean and Build Project**.
 
 <br><img src="../images/Clean_and_build.png">
 

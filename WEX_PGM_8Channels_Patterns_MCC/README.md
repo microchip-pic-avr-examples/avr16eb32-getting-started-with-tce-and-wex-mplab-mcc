@@ -29,7 +29,7 @@ The AVR16EB32 Curiosity Nano Development Board is used as a test platform.
 
 ## Functionality
 
-After the output port pins of the Waveform Extension (WEX) are configured, WEX is initialized, Timer Counter type E (TCE) is started, the ```Complementary_Pattern_Set``` and ```Stairs_Pattern_Set``` functions are called in an infinite loop. These functions change the output port pins state by overriding the current state with a new one. The update condition is done in software using delays. The WEX is configured in Pattern Generation Mode to be able to override the port pins outputs. The first function is used to generate a complementary pattern of 0 and 1 for the eight output signals of WEX. After a 250 μs delay the second function is called and a stairs pattern is generated. After another 250 μs delay the process repeats in an infinite loop.
+After the output port pins of the Waveform Extension (WEX) are configured, WEX is initialized, Timer Counter type E (TCE) is started, the ```Complementary_Pattern_Set``` and ```Stairs_Pattern_Set``` functions are called in an infinite loop. These functions change the output port pins state by overriding the current state with a new one. The update condition is done in software using delays. The WEX is configured in Pattern Generation Mode to be able to override the port pins outputs. The first function is used to generate a complementary pattern of `0` and `1` for the eight output signals of WEX. After a 250 μs delay the second function is called and a stairs pattern is generated. After another 250 μs delay the process repeats in an infinite loop.
 
 ## Functions Called in an Infinite Loop
 
@@ -114,7 +114,7 @@ void Stairs_Pattern_Set(void)
 
 <br>2. Open MCC from the toolbar (more information on how to install the MCC plug-in can be found [here](https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-D98198EA-93B9-45D2-9D96-C97DBCA55267)).
 
-<br>3. In **MCC Content Manager Wizard** select **MCC Melody** then select the **Finish**.<br><img src="../images/addMCC.png">
+<br>3. In **MCC Content Manager** tab click the **Select MCC Melody** button and then click **Finish**.<br><img src="../images/addMCC.png">
 <br><img src="../images/selectMCCMelody.png">
 <br><img src="../images/mccFinish.png">
 
@@ -270,7 +270,7 @@ int main(void)
 
 <br><img src="../images/Set_as_main_project2.png">
 
- 4. Build the ```WEX_PGM_8Channels_Patterns_MCC.X``` project: click on **Clean and Build Project**.
+ 1. Build the ```WEX_PGM_8Channels_Patterns_MCC.X``` project by clicking **Clean and Build Project**.
 
 <br><img src="../images/Clean_and_build2.png">
 
