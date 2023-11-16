@@ -103,7 +103,7 @@ void Amplitude_Value_Set(uint16_t value)
  |            PA3           |   TCE WO3           |
  |            PD5           |   digital output    |
 
-<br><img src="../Images/Pin_Grid_View_UseCase1.png">
+<br><img src="../images/Pin_Grid_View_UseCase1.png">
 
 <br>7. In the **Project Resources** tab, click the **Generate** button so that MCC will generate all the specified drivers and configurations.
 <br>
