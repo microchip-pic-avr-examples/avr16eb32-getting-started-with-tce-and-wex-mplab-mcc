@@ -2,7 +2,7 @@
 
 ## Generate PWM Signals Using TCE
 
-Below is an example of how to set a Timer/Counter Type E (TCE) instance to generate four Pulse-Width Modulation (PWM) signals at 10 kHz with a 20%, 40%, 60% and 80% duty cycles. In this example the scaling feature of the values set in compare registers is highlighted, as well as the high resolution feature. The user can increase the PWM signal resolution up to 3 bits.
+Below is an example of how to set a Timer/Counter Type E (TCE) instance to generate four Pulse-Width Modulation (PWM) signals at 10 kHz with duty cycles of 20%, 40%, 60%, and 80%. In this example the scaling feature of the values set in compare registers is highlighted, as well as the high resolution feature. The user can increase the PWM signal resolution up to three bits.
 
 ## Related Documentation
 
@@ -31,11 +31,11 @@ The AVR16EB32 Curiosity Nano Development Board is used as a test platform.
 
 ## Functionality
 
-<br>After the peripheral clock, the output port pins and TCE are initialized, the  ```Amplitude_Value_Set``` function is called in an infinite loop. This function changes the value written in the AMP register. Based on this value, the values that are initially written in the CMPBUF registers of TCE are scaled in hardware. TCE has a scaling hardware accelerator that modifies the values from CMPBUF registers based on the scale mode and the values from AMP and OFFSET registers. In this application, the amplitude is changed so the maximum duty cycle possible has the following values: 50%, 75%, 100% and 150%.
+<br>After the peripheral clock, the output port pins and TCE are initialized, the  ```Amplitude_Value_Set``` function is called in an infinite loop. This function changes the value written in the AMP register. Based on this value, the values initially written in the CMPBUF registers of TCE are scaled in hardware. TCE has a scaling hardware accelerator that modifies the values from CMPBUF registers based on the scale mode and the values from AMP and OFFSET registers. In this application, the amplitude changes, establishing the maximum possible values for duty cycles of 50%, 75%, 100% and 150%.
 
-<br>For example, when the amplitude is set so that the maximum duty cycle is 50%, the initial value from CMP0BUF of 20% duty cycle gets scaled to 10%, the initial value from CMP1BUF of 40% duty cycle gets scaled to 20%, the initial value from CMP2BUF of 60% duty cycle gets scaled to 30%, and the initial value from CMP3BUF of 80% duty cycle gets scaled to 40%. An important thing to note is that if the scaled duty cycle is higher than 100%, it will be saturated at 100%, meaning the output pin of TCE will stay in logic '1' high.
+<br>For example, when the amplitude is set so that the maximum duty cycle is 50%, the initial value from CMP0BUF of 20% duty cycle gets scaled to 10%, the initial value from CMP1BUF of 40% duty cycle gets scaled to 20%, the initial value from CMP2BUF of 60% duty cycle gets scaled to 30%, and the initial value from CMP3BUF of 80% duty cycle gets scaled to 40%. Notice that if the scaled duty cycle is higher than 100%, it will be saturated at 100%, meaning that the TCE's output pin will stay in logic `1` high.
 
-<br>The values in CMPBUF registers must be rewritten for the amplitude change to take place. To be able to see the changes on a logic analyzer a toggle pin is used at the end of the function. High resolution is also enabled and set to 4X, which means that one peripheral clock cycle duration get shortened 4 times. For example, a 20MHz clock speed one clock cycle duration is 50ns. With the high resolution enabled one clock cycle duration will be approximate 12.5 ns.
+<br>The values in CMPBUF registers must be rewritten for the amplitude change to take place. To see the changes on a logic analyzer, a pin toggle is used at the end of the function. High resolution is also enabled and set to 4X, which means that one peripheral clock cycle duration get shortened four times. For example, a 20 MHz clock speed has a clock cycle duration of 50 ns. With the high resolution enabled one clock cycle duration will be approximate 12.5 ns.
 
 ## Function Called in an Infinite Loop
 
@@ -84,16 +84,16 @@ void Amplitude_Value_Set(uint16_t value)
     <br>  - Duty Cycle 1 [%] : 40
     <br>  - Duty Cycle 2 [%] : 60
     <br>  - Duty Cycle 3 [%] : 80
-    <br>  - Waveform Output n : check the boxes from the Enable column for Waveform Output 0, 1, 2, 3
+    <br>  - Waveform Output n : Check the boxes from the Enable column for Waveform Output 0, 1, 2, 3
     <br>  - Duty Cycle High Resolution: Resolution increased by 4
     <br>  - Scale mode: CMP values are scaled from Bottom, 0% DC (duty cycle)
     <br>  - Scaled Writing to registers: Fractional
-    <br>  - Amplitude Control Enable: toggle the button (it turns blue if enabled)
+    <br>  - Amplitude Control Enable: Toggle the button (it turns blue if enabled)
     <br>  - Amplitude Value: 1
 <br><img src="../images/TCE_UI1.png">
 <br><img src="../images/TCE_UI2.png">
 
-<br>6. In the **Pin Grid View** tab check if the TCE WO [0-3] pins are locked as outputs on PORTA. When the boxes from Enable column from Waveform Output n are checked, the pins are also locked. To change the PORT simply click a pin from another PORT in **Pin Grid View**. Select PIN5 of PORTD as an output to use for toggle to see the amplitude and compare values changes.
+<br>6. In the **Pin Grid View** tab check if the TCE WO [0-3] pins are locked as outputs on PORTA. When the boxes from Enable column from Waveform Output n are checked, the pins are also locked. To change the PORT simply click a pin from another PORT in **Pin Grid View**. Select PIN5 of PORTD as an output for toggle to see the amplitude and compare values changes.
 
  |Pin                       | Configuration       |
  | :---------------------:  | :----------------:  |
@@ -182,8 +182,7 @@ int main(void)
 
 ## Results
 
-Below are illustrations of logic analyzer captures to help understand how the 4 PWM signals look, and how the scaling of the duty cycles are made using the amplitude and offset:
-
+The logic analyzer captures below show how the 4 PWM signals look and how and how the scaling of the duty cycles are made using the amplitude and offset:
 
 <br>The range of the duty cycles is 0-50% of the PERIOD 
 <br><img src="../images/usecase1_0_50.png">
@@ -197,7 +196,6 @@ Below are illustrations of logic analyzer captures to help understand how the 4 
 <br>The range of the duty cycles is scaled to 0-150% of the PERIOD
 <br><img src="../images/usecase1_0_150.png">
 
-
 ## Summary
 
-This project shows how to use the TCE to generate PWM signals in dual ramp mode and how to use the high resolution and scaling mode of PWM duty cycle, depending on the set amplitude and offset.
+This project shows how to use the TCE to generate PWM signals in Dual Ramp mode and how to use the high resolution and scaling mode of PWM duty cycle, depending on the set amplitude and offset.

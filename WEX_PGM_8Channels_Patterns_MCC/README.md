@@ -280,7 +280,7 @@ int main(void)
 
 ## Results
 
-Below is illustrated a logic analyzer capture, to help understanding a little bit better how to override the port pins and take the pins control from TCE using the WEX module:
+ The figure below illustrates a logic analyzer capture, to help understanding a little bit better how to override the port pins and take the pins control from TCE using the WEX module:
 
 <br>Switching from an alternating `1`, `0` logic pattern to a staircase patern, using all the possible outputs.
 
@@ -288,5 +288,4 @@ Below is illustrated a logic analyzer capture, to help understanding a little bi
 
 ## Summary
 
-This project shows how to use the WEX to generate different patterns, and take control of the Timer Counter type E (TCE) pins during run time, without stopping the timer. This is extremely
-useful for applications like for e.g. trapezoidal motor control, where some PWM signals must be forced to low '0' logic depending on the commutation sector.
+This project shows how to use the WEX to generate different patterns and take control of the TCE pins during run time, without stopping the timer. This is extremely useful for applications such as the trapezoidal motor control, where some Pulse-Width Modulation (PWM) signals must be forced to low `0` logic depending on the commutation sector.
