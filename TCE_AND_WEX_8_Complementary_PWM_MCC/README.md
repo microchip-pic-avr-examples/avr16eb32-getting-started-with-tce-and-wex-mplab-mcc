@@ -128,13 +128,13 @@ locked. To change the PORT simply click on a pin from another PORT in Pin Grid V
 
 <br><img src="../images/Pin_Grid_View_UseCase3.png">
 
-<br>7. In the Project Resources window, click the Generate button so that MCC will generate all the specified drivers and configurations.
+<br>10. In the Project Resources window, click the Generate button so that MCC will generate all the specified drivers and configurations.
 <br>
 <br>
 <br><img src="../images/Generate_Code.png">
 <br>
 
-<br>8. After the MCC Melody generates the project files with the configuration explained above, overwrite the content from main.c file with this:
+<br>11. After the MCC Melody generates the project files with the configuration explained above, overwrite the content from main.c file with this:
 
 ```c
 /* Calculated values for TCE's period and the maximum duty cycle */
