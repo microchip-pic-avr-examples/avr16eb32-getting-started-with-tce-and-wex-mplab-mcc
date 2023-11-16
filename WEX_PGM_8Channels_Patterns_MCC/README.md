@@ -14,8 +14,8 @@ A basic use case of the timer’s waveform extension is to set a pattern for the
 - [MPLAB® X IDE v6.15 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
 - [AVR-Ex DFP-2.8.189 or newer Device Pack](https://packs.download.microchip.com/)
 - [MPLAB® XC8 compiler v2.45](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/downloads-documentation#XC8)
-- [MPLAB® Code Configurator (MCC) v 5.3.7](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
-- [MPLAB® Code Configurator (MCC) Melody Core v 2.6.2 or newer](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
+- [MPLAB® Code Configurator (MCC) v5.3.7](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
+- [MPLAB® Code Configurator (MCC) Melody Core v2.6.2 or newer](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
 
 ## Hardware Used
 
@@ -108,32 +108,32 @@ void Stairs_Pattern_Set(void)
 
 <br><img src="../images/wex_patterns_flowchart.png">
 
-<br>To generate this project using MPLAB® X IDE and the MPLAB® X Code Configurator (MCC Melody, MCC Clasic is not supported on this device), follow the next steps:
+<br>To generate this project using MPLAB X IDE and the MPLAB X Code Configurator (MCC Melody, MCC Clasic is not supported on this device), follow the next steps:
 
-<br>1. Open MPLAB X IDE and create a new project for AVR16EB32 device.
+<br>1. Open MPLAB X IDE and create a new project for the AVR16EB32 device.
 
 <br>2. Open MCC from the toolbar (more information on how to install the MCC plug-in can be found [here](https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-D98198EA-93B9-45D2-9D96-C97DBCA55267)).
 
-<br>3. In MCC Content Manager Wizard select MCC Melody then select the Finish button.<br><img src="../images/addMCC.png">
+<br>3. In **MCC Content Manager Wizard** select **MCC Melody** then select the **Finish**.<br><img src="../images/addMCC.png">
 <br><img src="../images/selectMCCMelody.png">
 <br><img src="../images/mccFinish.png">
 
-<br>4. From the Device Resources, go to Drivers window, Timer and add TCE module, then do the following configuration:
+<br>4. To add the TCE module, go to _Device Resources>Drivers>Timer>TCE0_, then do the following configuration:
 <br><img src="../images/Add_TCE.png">
     <br> - Module Enable - toggle the button (it turns blue if enabled)
 <br><img src="../images/TCE_UI_usecase2.png">
 
-<br>5. From the Device Resources, go to Drivers window, add the WEX module, then do the following configuration:
+<br>5. To add the WEX module, go to _Device Resources>Drivers>WEX>WEX0_, then do the following configuration:
 <br><img src="../images/Add_WEX.png">
     <br> - Input Matrix: Direct
     <br> - Update Source: TCE (the update condition for the output signals will be the TCE module)
-    <br> - Override Settings: Check all the boxes from the Output Enable column for the Waveform Output[0-7]
-    <br> - Pattern Generation Mode Enable: toggle the button (it turns blue if enabled)
-    <br> - Pattern Generation Actions : check all the boxes from the Override Enable column and set for each output a desired state (LOW or HIGH), in order to set a pattern
+    <br> - Override Settings: Check all the boxes from the Output Enable column for the Waveform Output [0-7]
+    <br> - Pattern Generation Mode Enable: Toggle the button (it turns blue if enabled)
+    <br> - Pattern Generation Actions: Check all the boxes from the Override Enable column and set a desired state (LOW or HIGH) for each output, to set a pattern
 <br><img src="../images/WEX_UI_usecase2.png">
 
-<br>6. In the Pin Grid View window check if the WEX_WO[0-7] pins are locked as outputs on PORTA. When the boxes from Output Enable column from Override Settings are checked, the pins are
-also locked. To change the PORT simply click on a pin from another PORT in Pin Grid View.
+<br>6. In the **Pin Grid View** tab check if the WEX WO [0-7] pins are locked as outputs on PORTA. When the boxes from Output Enable column from Override Settings are checked, the pins are
+also locked. To change the PORT simply click a pin from another PORT in **Pin Grid View**.
 
  |Pin                       | Configuration       |
  | :---------------------:  | :----------------:  |
@@ -148,13 +148,13 @@ also locked. To change the PORT simply click on a pin from another PORT in Pin G
 
 <br><img src="../images/Pin_Grid_View_UseCase2.png">
 
-<br>7. In the Project Resources window, click the Generate button so that MCC will generate all the specified drivers and configurations.
+<br>7. In the **Project Resources** tab, click the **Generate** button so that MCC will generate all the specified drivers and configurations.
 <br>
 <br>
 <br><img src="../images/Generate_Code.png">
 <br>
 
-<br>8. After the MCC Melody generates the project files with the configuration explained above, overwrite the content from main.c file with this:
+<br>8. After MCC Melody generates the project files with the configuration explained above, overwrite the content from the ```main.c``` file with this:
 
 ```c
 /* Patterns that are written in the PGMOUT register */
@@ -264,17 +264,17 @@ int main(void)
 
  1. Connect the board to the PC.
 
- 2. Open the **WEX_PGM_8Channels_Patterns_MCC.X** or **WEX_PGM_8Channels_Patterns.X** solution in MPLAB X IDE.
+ 2. Open the ```WEX_PGM_8Channels_Patterns_MCC.X``` solution in MPLAB X IDE.
 
- 3. Right click on the project and select **Set as main project**.
+ 3. Right click the project and select Set as main project.
 
 <br><img src="../images/Set_as_main_project2.png">
 
- 4. Build the **WEX_PGM_8Channels_Patterns_MCC.X** or **WEX_PGM_8Channels_Patterns.X** project: click on **Clean and Build Project**.
+ 4. Build the ```WEX_PGM_8Channels_Patterns_MCC.X``` project: click on **Clean and Build Project**.
 
 <br><img src="../images/Clean_and_build2.png">
 
- 5. Program the project to the board: click on **Make and Program Device**.
+ 5. Click **Make and Program Device** to program the project to the board.
 
 <br><img src="../images/Program_board2.png">
 
@@ -282,7 +282,7 @@ int main(void)
 
 Below is illustrated a logic analyzer capture, to help understanding a little bit better how to override the port pins and take the pins control from TCE using the WEX module:
 
-<br>Switching from an alternating '1', '0' logic pattern to a staircase patern, using all the possible outputs.
+<br>Switching from an alternating `1`, `0` logic pattern to a staircase patern, using all the possible outputs.
 
 <br><img src="../images/usecase2_patterns.png">
 

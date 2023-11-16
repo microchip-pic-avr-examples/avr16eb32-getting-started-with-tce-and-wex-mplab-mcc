@@ -16,8 +16,8 @@ More details and code examples on the AVR16EB32 can be found at the following li
 - [MPLAB® X IDE v6.15 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
 - [AVR-Ex DFP-2.8.189 or newer Device Pack](https://packs.download.microchip.com/)
 - [MPLAB® XC8 compiler v2.45](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/downloads-documentation#XC8)
-- [MPLAB® Code Configurator (MCC) v 5.3.7](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
-- [MPLAB® Code Configurator (MCC) Melody Core v 2.6.2 or newer](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
+- [MPLAB® Code Configurator (MCC) v5.3.7](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
+- [MPLAB® Code Configurator (MCC) Melody Core v2.6.2 or newer](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
 
 ## Hardware Used
 
@@ -53,25 +53,27 @@ void Clear_Fault(void)
 
 <br><img src="../images/tce_wex_fault_flowchart.png">
 
-<br>To generate this project using MPLAB® X IDE and the MPLAB® X Code Configurator (MCC Melody, MCC Clasic is not supported on this device), follow the next steps:
+<br>To generate this project using MPLAB X IDE and the MPLAB X Code Configurator (MCC Melody, MCC Clasic is not supported on this device), follow the next steps:
 
-<br>1. Open MPLAB X IDE and create a new project for AVR16EB32 device.
+<br>1. Open MPLAB X IDE and create a new project for the AVR16EB32 device.
 
 <br>2. Open MCC from the toolbar (more information on how to install the MCC plug-in can be found [here](https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-D98198EA-93B9-45D2-9D96-C97DBCA55267)).
 
-<br>3. In MCC Content Manager Wizard select MCC Melody then select the Finish button.<br><img src="../images/addMCC.png">
+<br>3. In **MCC Content Manager Wizard** select **MCC Melody** then select the **Finish**.<br><img src="../images/addMCC.png">
 <br><img src="../images/selectMCCMelody.png">
 <br><img src="../images/mccFinish.png">
 
-<br>4. Click on Project Resources, go to System, select Interrupt Manager and toggle the Global Interrupt Enable button
+<br>4. Click on _Project Resources>System>Interrupt Manager_, then do the following configuration:
 <br><img src="../images/Select_Interrupt_Manager.png">
+    <br> - Toggle the Global Interrupt Enable button
 <br><img src="../images/Global_Interrupt_usecase3.png">
 
-<br>5. Go to Project Resources, click System then click CLKCTRL and disable the Prescaler enable button
+<br>5. Click on Project _Resources>System>CLKCTRL_, then do the following configuration:
 <br><img src="../images/Select_CLKCTRL.png">
+    <br> - Disable the Prescaler enable button
 <br><img src="../images/CLKCTRL_usecase3.png">
 
-<br>6. From the Device Resources go to Drivers and click the Timer window, add the TCE module, then do the following configuration:
+<br>6. To add the TCE module, go to _Device Resources>Drivers>Timer>TCE0_, then do the following configuration:
 <br><img src="../images/Add_TCE.png">
   <br> - Enable Timer: Should be enabled by default, if not just toggle the button (it turns blue if enabled)
   <br> - Clock Divider: System clock (by default the divider should be 1 - System clock)
@@ -86,7 +88,7 @@ void Clear_Fault(void)
 <br><img src="../images/TCE_UI1_usecase3.png">
 <br><img src="../images/TCE_UI2_usecase3.png">
 
-<br>7. From the Device Resources click the Drivers window, add the WEX module, then do the following configuration:
+<br>7. To add the WEX module, go to _Device Resources>Drivers>WEX>WEX0_, then do the following configuration:
 <br><img src="../images/Add_WEX.png">
   <br> - Input Matrix: Direct
   <br> - Update Source: TCE (the update condition for the output signals will be dictated by TCE)
@@ -105,36 +107,35 @@ void Clear_Fault(void)
 <br><img src="../images/WEX_UI1_usecase3.png">
 <br><img src="../images/WEX_UI2_usecase3.png">
 
-<br>8. From the Device Resources go to the Drivers window, add the EVSYS module, then do the following configuration:
+<br>8. To add the EVSYS module, go to _Device Resources>Drivers>EVSYS_, then do the following configuration:
 <br><img src="../images/Add_EVSYS.png">
   <br> - CHANNELS: CHANNEL0
   <br> - USERS: WEXA (from CHANNEL0 rectangle from CHANNELS tab hold and drag the cursor to the WEXA rectangle from the USERS tab)
 <br><img src="../images/EVSYS_UI_usecase3.png">
 <br><img src="../images/EVSYS_UI2_usecase3.png">
 
-<br>9. In the Pin Grid View window check if the WEX_WO[0-7] pins are locked as outputs on PORTA. When the boxes from Enable column from Waveform Output n are checked, the pins are also
-locked. To change the PORT simply click on a pin from another PORT in Pin Grid View.
+<br>9. In the **Pin Grid View** tab check if the WEX WO [0-7] pins are locked as outputs on PORTA. When the boxes from Enable column from Waveform Output n are checked, the pins are also locked. To change the PORT simply click a pin from another PORT in **Pin Grid View**.
 
  |Pin                       | Configuration       |
  | :---------------------:  | :----------------:  |
- |            PA0           |   TCE & WEX WO0     |
- |            PA1           |   TCE & WEX WO1     |
- |            PA2           |   TCE & WEX WO2     |
- |            PA3           |   TCE & WEX WO3     |
- |            PA4           |   TCE & WEX WO4     |
- |            PA5           |   TCE & WEX WO5     |
- |            PA6           |   TCE & WEX WO6     |
- |            PA7           |   TCE & WEX WO7     |
+ |            PA0           |    WEX WO0          |
+ |            PA1           |    WEX WO1          |
+ |            PA2           |    WEX WO2          |
+ |            PA3           |    WEX WO3          |
+ |            PA4           |    WEX WO4          |
+ |            PA5           |    WEX WO5          |
+ |            PA6           |    WEX WO6          |
+ |            PA7           |    WEX WO7          |
 
 <br><img src="../images/Pin_Grid_View_UseCase3.png">
 
-<br>10. In the Project Resources window, click the Generate button so that MCC will generate all the specified drivers and configurations.
+<br>10. In the **Project Resources** tab, click the **Generate** button so that MCC will generate all the specified drivers and configurations.
 <br>
 <br>
 <br><img src="../images/Generate_Code.png">
 <br>
 
-<br>11. After the MCC Melody generates the project files with the configuration explained above, overwrite the content from main.c file with this:
+<br>11. After the MCC Melody generates the project files with the configuration explained above, overwrite the content from the ```main.c``` file with this:
 
 ```c
 /* Calculated values for TCE's period and the maximum duty cycle */
@@ -229,17 +230,17 @@ int main(void)
 
  1. Connect the board to the PC.
 
- 2. Open the **TCE_AND_WEX_8_Complementary_PWM_MCC.X** or **TCE_AND_WEX_8_Complementary_PWM.X** solution in MPLAB X IDE.
+ 2. Open the ```TCE_AND_WEX_8_Complementary_PWM_MCC.X``` solution in MPLAB X IDE.
 
- 3. Right click on the project and select **Set as main project**.
+ 3. Right click the project and select Set as main project.
 
 <br><img src="../images/Set_as_main_project3.png">
 
- 4. Build the **TCE_AND_WEX_8_Complementary_PWM_MCC.X** or **TCE_AND_WEX_8_Complementary_PWM.X** project: click on **Clean and Build Project**.
+ 4. Build the ```TCE_AND_WEX_8_Complementary_PWM_MCC.X``` project: click on **Clean and Build Project**.
 
 <br><img src="../images/Clean_and_build3.png">
 
- 5. Program the project to the board: click on **Make and Program Device**.
+ 5. Click **Make and Program Device** to program the project to the board.
 
 <br><img src="../images/Program_board3.png">
 

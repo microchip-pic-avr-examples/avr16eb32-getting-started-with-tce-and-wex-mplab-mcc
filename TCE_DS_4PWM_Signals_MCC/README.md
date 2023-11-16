@@ -16,8 +16,8 @@ More details and code examples on the AVR16EB32 can be found at the following li
 - [MPLAB® X IDE v6.15 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
 - [AVR-Ex DFP-2.8.189 or newer Device Pack](https://packs.download.microchip.com/)
 - [MPLAB® XC8 compiler v2.45](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/downloads-documentation#XC8)
-- [MPLAB® Code Configurator (MCC) v 5.3.7](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
-- [MPLAB® Code Configurator (MCC) Melody Core v 2.6.2 or newer](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
+- [MPLAB® Code Configurator (MCC) v5.3.7](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
+- [MPLAB® Code Configurator (MCC) Melody Core v2.6.2 or newer](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
 
 ## Hardware Used
 
@@ -55,17 +55,17 @@ void Amplitude_Value_Set(uint16_t value)
 
 <br><img src="../images/tce_scale_flowchart.png">
 
-<br>To generate this project using MPLAB® X IDE and the MPLAB® X Code Configurator (MCC Melody, MCC Clasic is not supported on this device), follow the next steps:
+<br>To generate this project using MPLAB X IDE and the MPLAB X Code Configurator (MCC Melody, MCC Clasic is not supported on this device), follow the next steps:
 
-<br>1. Open MPLAB X IDE and create a new project for AVR16EB32 device.
+<br>1. Open MPLAB X IDE and create a new project for the AVR16EB32 device.
 
 <br>2. Open MCC from the toolbar (more information on how to install the MCC plug-in can be found [here](https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-D98198EA-93B9-45D2-9D96-C97DBCA55267)).
 
-<br>3. In MCC Content Manager Wizard select MCC Melody then select the Finish button.<br><img src="../images/addMCC.png">
+<br>3. In **MCC Content Manager Wizard** select **MCC Melody** then select the **Finish**.<br><img src="../images/addMCC.png">
 <br><img src="../images/selectMCCMelody.png">
 <br><img src="../images/mccFinish.png">
 
-<br>4. Click on Project Resources, go to System, select CLKCTRL, then do the following configuration:
+<br>4. Click on Project _Resources>System>CLKCTRL_, then do the following configuration:
 <br><img src="../images/Select_CLKCTRL.png">
     <br> - Disable the Prescaler enable button
     <br> - Clock Select: PLL Oscillator
@@ -74,7 +74,7 @@ void Amplitude_Value_Set(uint16_t value)
     <br> - Prescaler B division PDIVB: DIV4
 <br><img src="../images/CLKCTRL_usecase1.png">
 
-<br>5. From the Device Resources, go to Drivers and Timer window, add the TCE module, then do the following configuration:
+<br>5. To add the TCE module, go to _Device Resources>Drivers>Timer>TCE0_, then do the following configuration:
 <br><img src="../images/Add_TCE.png">
     <br>  - Module Enable: Must be enabled by default, if not just toggle the button (it turns blue if enabled)
     <br>  - Clock Selection: System clock (by default the divider must be 1 - System clock)
@@ -93,7 +93,7 @@ void Amplitude_Value_Set(uint16_t value)
 <br><img src="../images/TCE_UI1.png">
 <br><img src="../images/TCE_UI2.png">
 
-<br>6. In the Pin Grid View window check if the TCE_WO[0-3] pins are locked as outputs on PORTA. When the boxes from Enable column from Waveform Output n are checked, the pins are also locked. To change the PORT     simply click on a pin from another PORT in Pin Grid View. Select PIN5 of PORTD as an output to use for toggle to see the amplitude and compare values changes.
+<br>6. In the **Pin Grid View** tab check if the TCE WO [0-3] pins are locked as outputs on PORTA. When the boxes from Enable column from Waveform Output n are checked, the pins are also locked. To change the PORT simply click a pin from another PORT in **Pin Grid View**. Select PIN5 of PORTD as an output to use for toggle to see the amplitude and compare values changes.
 
  |Pin                       | Configuration       |
  | :---------------------:  | :----------------:  |
@@ -105,13 +105,13 @@ void Amplitude_Value_Set(uint16_t value)
 
 <br><img src="../Images/Pin_Grid_View_UseCase1.png">
 
-<br>7. In the Project Resources window, click the Generate button so that MCC will generate all the specified drivers and configurations.
+<br>7. In the **Project Resources** tab, click the **Generate** button so that MCC will generate all the specified drivers and configurations.
 <br>
 <br>
 <br><img src="../images/Generate_Code.png">
 <br>
 
-<br>8. After the MCC Melody generates the project files with the configuration explained above, overwrite the content from main.c file with this:
+<br>8. After MCC Melody generates the project files with the configuration explained above, overwrite the content from the ```main.c``` file with this:
 
 ```c
 /* Calculated values for Period, CMP, Amplitude and OFFSET registers */
@@ -166,17 +166,17 @@ int main(void)
  
  1. Connect the board to the PC.
 
- 2. Open the **TCE_DS_4PWM_Signals_MCC.X** or **TCE_DS_4PWM_Signals.X** solution in MPLAB X IDE.
+ 2. Open the ```TCE_DS_4PWM_Signals_MCC.X``` solution in MPLAB X IDE.
 
- 3. Right click on the project and select **Set as main project**.
+ 3. Right click the project and select Set as main project.
 
 <br><img src="../images/Set_as_main_project.png">
 
- 4. Build the **TCE_DS_4PWM_Signals_MCC.X** or **TCE_DS_4PWM_Signals.X** project: click on **Clean and Build Project**.
+ 4.  Build the ```TCE_DS_4PWM_Signals_MCC.X``` project: click on **Clean and Build Project**.
 
 <br><img src="../images/Clean_and_build.png">
 
- 5. Program the project to the board: click on **Make and Program Device**.
+ 5. Click **Make and Program Device** to program the project to the board.
 
 <br><img src="../images/Program_board.png">
 
